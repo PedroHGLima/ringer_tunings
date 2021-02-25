@@ -13,11 +13,11 @@ model = tf.keras.Model(input, output, name = "model")
 
 
 create_jobs( models = [model],
-        nInits        = 2,
+        nInits        = 10,
         nInitsPerJob  = 1,
         sortBounds    = 10,
         nSortsPerJob  = 1,
         nModelsPerJob = 1,
-        outputFolder  = 'job_config.Zee_v1_el_trk.10sorts.2inits' )
+        outputFolder  = 'job_config.Zee_v1_el_trk.10sorts.10inits.r1' )
 
 

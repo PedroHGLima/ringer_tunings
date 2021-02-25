@@ -188,8 +188,8 @@ class Model( model_generator_base ):
     # ringer shape
     input_rings = layers.Input(shape=(100,), name='Input_rings')
     conv_rings   = layers.Reshape((100,1))(input_rings)
-    conv_rings   = layers.Conv1D( 4, kernel_size=3, name='conv1d_rings_1', activation='relu')(conv_rings)
-    conv_rings   = layers.Conv1D( 8, kernel_size=3, name='conv1d_rings_2', activation='relu')(conv_rings)
+    conv_rings   = layers.Conv1D( 4, kernel_size=2, name='conv1d_rings_1', activation='relu')(conv_rings)
+    conv_rings   = layers.Conv1D( 8, kernel_size=2, name='conv1d_rings_2', activation='relu')(conv_rings)
     conv_output  = layers.Flatten()(conv_rings)
 
 
@@ -205,7 +205,8 @@ class Model( model_generator_base ):
     # decision layer
     input_concat = layers.Concatenate(axis=1)([conv_output, dense_shower_shapes, dense_track_variables])
     dense = layers.Dense(16, activation='relu', name='dense_layer')(input_concat)
-    dense = layers.Dense(1,activation='linear', name='output_for_inference', kernel_regularizer='l2', bias_regularizer='l2')(dense)
+    #dense = layers.Dense(1,activation='linear', name='output_for_inference', kernel_regularizer='l2', bias_regularizer='l2')(dense)
+    dense = layers.Dense(1,activation='linear', name='output_for_inference')(dense)
     output = layers.Activation('sigmoid', name='output_for_training')(dense)
 
     # Build the model

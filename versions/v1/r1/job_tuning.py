@@ -298,7 +298,7 @@ try:
                                   metrics           = ['accuracy'],
                                   callbacks         = [sp(patience=25, verbose=True, save_the_best=True)],
                                   epochs            = 5000,
-                                  plots             = [plot_training_curves],
+                                  #plots             = [plot_training_curves],
                                   class_weight      = False,
                                   model_generator   = model, # Force to work with model generator (Hack)
                                   models            = [None] if args.type=='fusion' else None, # Force to work with model generator (Hack)
