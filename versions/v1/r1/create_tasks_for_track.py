@@ -1,7 +1,7 @@
 
 import os
 basepath = os.getcwd()
-path = basepath + '/Zee_el/v1_trk/r0'
+path = basepath + '/Zee_el/v1_trk/r1'
 
 
 
